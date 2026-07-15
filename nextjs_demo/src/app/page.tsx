@@ -4,7 +4,6 @@ export default async function Home() {
 
   return (
     <main style={{ padding: "2rem" }}>
-      <h1>Backend Connection Test</h1>
       <pre>{JSON.stringify(todos, null, 2)}</pre>
     </main>
   );
