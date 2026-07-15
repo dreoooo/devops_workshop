@@ -106,17 +106,6 @@ export default function TodoGrid({
         "
       >
 
-        <h2
-          className="
-            text-2xl
-            font-bold
-            tracking-tight
-            text-gray-900
-          "
-        >
-          Your Tasks 🌱
-        </h2>
-
 
         <span
           className="

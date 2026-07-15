@@ -283,7 +283,7 @@ export default function TodoDashboard() {
           "
         >
 
-          Loading your tasks... ✨
+          Loading your tasks... 
 
         </div>
 
