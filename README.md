@@ -37,3 +37,5 @@ npm install
 Run development server:
 
 npm run dev
+
+Live Demo: https://tarre-devops.vercel.app
