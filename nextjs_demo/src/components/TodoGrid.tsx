@@ -16,48 +16,79 @@ export default function TodoGrid({
   if (todos.length === 0) {
     return (
       <section className="max-w-5xl mx-auto px-6 pb-10">
+
         <div
           className="
-            rounded-3xl
+            rounded-[2rem]
             border
-            bg-white/80
-            backdrop-blur-sm
+            border-gray-200
+            bg-white/70
+            backdrop-blur-xl
             p-12
             text-center
-            shadow-sm
+            shadow-lg
+            transition-all
+            duration-300
+            hover:shadow-xl
           "
         >
-          <div className="text-4xl mb-4">
+
+          <div
+            className="
+              mx-auto
+              flex
+              h-20
+              w-20
+              items-center
+              justify-center
+              rounded-full
+              bg-gradient-to-br
+              from-blue-100
+              to-purple-100
+              text-4xl
+              shadow-sm
+            "
+          >
             📝
           </div>
 
+
           <h2
             className="
-              text-xl
-              font-semibold
+              mt-6
+              text-2xl
+              font-bold
               tracking-tight
               text-gray-900
-              antialiased
             "
           >
-            No tasks yet
+            No tasks yet 
           </h2>
+
 
           <p
             className="
               mt-3
               text-sm
+              md:text-base
               text-gray-500
-              antialiased
+              font-medium
             "
           >
-            Click{" "}
-            <span className="font-medium text-gray-700">
-              "Add Todo"
-            </span>{" "}
-            to create your first task.
+            Start organizing your day by creating your first{" "}
+            <span
+              className="
+                font-semibold
+                text-purple-600
+              "
+            >
+              Todo
+            </span>
+            .
           </p>
+
         </div>
+
       </section>
     );
   }
@@ -65,6 +96,44 @@ export default function TodoGrid({
 
   return (
     <section className="max-w-5xl mx-auto px-6 pb-10">
+
+      <div
+        className="
+          mb-6
+          flex
+          items-center
+          justify-between
+        "
+      >
+
+        <h2
+          className="
+            text-2xl
+            font-bold
+            tracking-tight
+            text-gray-900
+          "
+        >
+          Your Tasks 🌱
+        </h2>
+
+
+        <span
+          className="
+            rounded-full
+            bg-purple-100
+            px-4
+            py-1.5
+            text-sm
+            font-semibold
+            text-purple-600
+          "
+        >
+          {todos.length} {todos.length === 1 ? "Task" : "Tasks"}
+        </span>
+
+      </div>
+
 
       <div
         className="
@@ -77,13 +146,14 @@ export default function TodoGrid({
       >
 
         {todos.map((todo) => (
+
           <div
             key={todo.id}
             className="
               animate-in
               fade-in
-              slide-in-from-bottom-2
-              duration-300
+              slide-in-from-bottom-4
+              duration-500
             "
           >
 
@@ -96,6 +166,7 @@ export default function TodoGrid({
             />
 
           </div>
+
         ))}
 
       </div>

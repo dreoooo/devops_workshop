@@ -43,7 +43,11 @@ export default function TodoForm({
     }
   }, [todo, open]);
 
+
   function handleSave() {
+
+    if (!title.trim()) return;
+
     onSave(title, description);
 
     setTitle("");
@@ -52,109 +56,197 @@ export default function TodoForm({
     onOpenChange(false);
   }
 
+
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog
+      open={open}
+      onOpenChange={onOpenChange}
+    >
+
       <DialogContent
         className="
-          rounded-3xl
-          sm:max-w-[500px]
+          rounded-[2rem]
+          border
+          border-gray-200
+          bg-white/90
+          backdrop-blur-xl
+          shadow-2xl
+          sm:max-w-[520px]
           p-8
         "
       >
+
         <DialogHeader>
+
           <DialogTitle
             className="
-              text-2xl
-              font-semibold
+              text-3xl
+              font-extrabold
               tracking-tight
-              text-gray-900
-              antialiased
+              bg-gradient-to-r
+              from-blue-500
+              via-purple-500
+              to-pink-500
+              bg-clip-text
+              text-transparent
             "
           >
-            {todo ? "Edit Task" : "Create New Task"}
+            {todo ? "Edit Your Task ✨" : "Create a New Task 🌱"}
           </DialogTitle>
 
-          <p className="text-sm text-gray-500 mt-2">
+
+          <p
+            className="
+              mt-3
+              text-sm
+              font-medium
+              text-gray-500
+            "
+          >
             {todo
-              ? "Update your task details below."
-              : "Add a new task to your todo list."}
+              ? "Update your task details and keep everything organized."
+              : "Add something new to your productivity journey."
+            }
           </p>
+
         </DialogHeader>
 
-        <div className="space-y-5 mt-4">
+
+
+        <div
+          className="
+            mt-6
+            space-y-5
+          "
+        >
+
           <div className="space-y-2">
+
             <Label
               htmlFor="title"
-              className="text-sm font-medium text-gray-700"
+              className="
+                text-sm
+                font-bold
+                text-gray-700
+              "
             >
               Task Title
             </Label>
+
 
             <Input
               id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="e.g. Learn React"
+              placeholder="Example: Learn Prisma ORM"
               className="
-                rounded-xl
-                h-11
-                focus-visible:ring-2
+                h-12
+                rounded-2xl
+                border-gray-200
+                bg-gray-50
+                px-4
+                font-medium
+                transition-all
+                focus:bg-white
+                focus:ring-2
+                focus:ring-purple-300
               "
             />
+
           </div>
 
+
+
+
           <div className="space-y-2">
+
             <Label
               htmlFor="description"
-              className="text-sm font-medium text-gray-700"
+              className="
+                text-sm
+                font-bold
+                text-gray-700
+              "
             >
               Description
             </Label>
+
 
             <Textarea
               id="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Describe your task..."
+              placeholder="Describe what you need to accomplish..."
               className="
-                min-h-[120px]
-                rounded-xl
+                min-h-[130px]
+                rounded-2xl
                 resize-none
-                focus-visible:ring-2
+                border-gray-200
+                bg-gray-50
+                p-4
+                font-medium
+                transition-all
+                focus:bg-white
+                focus:ring-2
+                focus:ring-purple-300
               "
             />
+
           </div>
+
         </div>
+
+
+
 
         <DialogFooter
           className="
             mt-8
             gap-3
-            sm:justify-end
           "
         >
+
           <Button
             variant="outline"
             className="
-              rounded-xl
-              px-5
+              rounded-2xl
+              px-6
+              font-semibold
+              border-gray-200
+              hover:bg-gray-100
             "
             onClick={() => onOpenChange(false)}
           >
             Cancel
           </Button>
 
+
+
           <Button
             className="
-              rounded-xl
-              px-6
+              rounded-2xl
+              px-7
+              font-bold
+              bg-gradient-to-r
+              from-blue-500
+              via-purple-500
+              to-pink-500
+              text-white
+              shadow-md
+              transition-all
+              hover:scale-105
+              hover:shadow-lg
             "
             onClick={handleSave}
           >
-            {todo ? "Update Task" : "Create Task"}
+            {todo ? "Save Changes ✨" : "Create Task 🚀"}
           </Button>
+
         </DialogFooter>
+
+
       </DialogContent>
+
     </Dialog>
   );
 }
